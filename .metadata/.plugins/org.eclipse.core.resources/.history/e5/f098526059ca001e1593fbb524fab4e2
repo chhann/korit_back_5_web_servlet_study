@@ -1,0 +1,5 @@
+package com.study.practice_post.entity;
+
+public class User {
+
+}

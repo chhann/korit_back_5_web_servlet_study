@@ -1,0 +1,29 @@
+async function handleLoginClick() {
+	const input = document.querySelectorAll("input");
+	
+	const loginUser = {
+		username: inputs[0].value,
+		password: inputs[1].value
+	}
+	
+	try {
+		const response = await fetch("/product/auth/signin",{
+			method: "post",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(loginUser);
+		});
+		
+		if(!response.ok) {
+			throw await response.json();
+		}
+		
+		location.href = "";
+		
+		
+		
+	} catch(error) {
+		alert(error?.errorMessage);
+	}
+}

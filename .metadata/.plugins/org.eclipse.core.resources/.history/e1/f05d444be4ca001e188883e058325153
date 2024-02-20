@@ -1,0 +1,9 @@
+package com.study.insert_and_select.config;
+
+public interface DBconfig {
+
+	public static final String URL = "";
+	String USERNAME = "aws";
+	String PASSWORD = "1q2w3e4r!!";
+	
+}

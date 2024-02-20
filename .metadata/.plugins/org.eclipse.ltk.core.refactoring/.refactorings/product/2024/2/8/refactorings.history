@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ResponseEntity.java&apos; to &apos;notice_board/src/main/java/com.study.notice_board.utils&apos;&#x0D;&#x0A;- Original project: &apos;product&apos;&#x0D;&#x0A;- Destination element: &apos;notice_board/src/main/java/com.study.notice_board.utils&apos;&#x0D;&#x0A;- Original element: &apos;com.study.product.utils.ResponseEntity.java&apos;" description="Copy compilation unit" destination="=notice_board/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.study.notice_board.utils" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.study.product.utils{ResponseEntity.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1708387472483" units="1" version="1.0"/>
+</session>

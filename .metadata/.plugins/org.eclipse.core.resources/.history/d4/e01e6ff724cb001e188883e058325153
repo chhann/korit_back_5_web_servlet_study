@@ -1,0 +1,25 @@
+package com.study.notice_board.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+public class WriteDataDao {
+	private static WriteDataDao instance;
+	
+	private WriteDataDao() {}
+	
+	public static WriteDataDao getInstance() {
+		if(instance == null) {
+			instance = new WriteDataDao();
+		}
+		return instance;
+	}
+	
+	public int saveWriterInfo() {
+		Connection con  = null;
+		PreparedStatement pstmt = null;
+		int successConut = 0;
+	}
+	
+	
+}

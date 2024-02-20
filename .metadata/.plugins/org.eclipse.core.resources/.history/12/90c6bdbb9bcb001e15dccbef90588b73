@@ -1,0 +1,30 @@
+package com.study.notice_board.utils;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class RequestUtil {
+	
+	public static String getJsonData(HttpServletRequest request) throws IOException {
+		String requestJsonData = null;
+		
+		StringBuilder builder = new StringBuilder(); 
+		
+		String readData = null;
+		
+		BufferedReader reader = request.getReader();
+		
+		
+		// 가져온 json 문자열 담음
+		while((readData = reader.readLine()) != null) {
+			builder.append(readData);
+		}
+		
+		requestJsonData = builder.toString();
+		
+		return requestJsonData;
+	}
+	
+}

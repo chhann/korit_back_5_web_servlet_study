@@ -1,0 +1,57 @@
+package com.study.insert_and_select.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.study.insert_and_select.config.DBconfig;
+import com.study.insert_and_select.entity.Student;
+
+public class StudentDao {
+	
+
+	public Student findStudentByName(String name) {
+		Connection con  = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Student student = null;
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");    // 데이터베이스 커넥터 드라이브 클래스 이름
+			
+			con = DriverManager.getConnection(DBconfig.URL, DBconfig.USERNAME, DBconfig.PASSWORD);
+			String sql = "select * from student_tb where student_name = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, student.getName());
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				student = Student.builder()
+						.name(rs.getString(2))
+						.age(rs.getInt(3))
+						.build();
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return student;
+	}
+	
+	public int saveStudent(Student student) {
+		Connection con  = null;
+		PreparedStatement pstmt = null;
+		int successConut = 0;
+		
+		try {
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return successConut;
+	}
+}

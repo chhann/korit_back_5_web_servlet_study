@@ -1,0 +1,6 @@
+package com.study.insert_and_select.entity;
+
+public class Student {
+	private String name;
+	private String age;
+}

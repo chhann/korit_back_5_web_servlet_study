@@ -1,0 +1,45 @@
+<%@page import="com.study.product.dto.SearchProductRespDto"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    
+<%
+	List<SearchProductRespDto> productList = (List<SearchProductRespDto>)request.getAttribute("productList");
+%>
+    
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>상품명</th>
+				<th>가격</th>
+				<th>사이즈</th>
+			</tr>
+		</thead>
+		<tbody>
+		<%
+			for(SearchProductRespDto dto : productList) {
+		%>
+			<tr>
+				<td><%=dto.getProductId() %></td>
+				<td><%=dto.getProductName() %></td>
+				<td><%=dto.getProductPrice() %></td>
+				<td><%=dto.getProductSize() %></td>
+			</tr>
+		<%
+			}
+		%>
+		</tbody>
+	</table>
+</body>
+</html>

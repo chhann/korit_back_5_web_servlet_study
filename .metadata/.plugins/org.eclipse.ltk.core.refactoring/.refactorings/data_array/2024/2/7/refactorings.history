@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;DBConnectionMgr.java&apos; to &apos;product/src/main/java/com.study.product.config&apos;&#x0D;&#x0A;- Original project: &apos;data_array&apos;&#x0D;&#x0A;- Destination element: &apos;product/src/main/java/com.study.product.config&apos;&#x0D;&#x0A;- Original element: &apos;com.study.array.config.DBConnectionMgr.java&apos;" description="Copy compilation unit" destination="=product/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.study.product.config" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.study.array.config{DBConnectionMgr.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1707965610657" units="1" version="1.0"/>
+</session>

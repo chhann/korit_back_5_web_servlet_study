@@ -1,0 +1,35 @@
+package com.study.product.service;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import com.study.product.dao.ProductDao;
+import com.study.product.dao.ProductDaoVer2;
+
+public class ProductService {
+	private static ProductService instance;
+	private ProductDaoVer2 productDaoVer2;
+	
+	private ProductService() {
+		productDaoVer2 = ProductDaoVer2.getInstance();
+	}
+	
+	public static ProductService getInstance() {
+		if(instance == null) {
+			instance = new ProductService();
+		}
+		return instance;
+	}
+	
+	public boolean duplicatedProductName(String productName) {
+		boolean result = false;
+		
+		return result;
+	}
+
+	public void addProduct(ProduvtVo productVo) {
+		
+	}
+}

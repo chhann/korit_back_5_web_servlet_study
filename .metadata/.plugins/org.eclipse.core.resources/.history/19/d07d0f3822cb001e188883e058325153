@@ -1,0 +1,20 @@
+package com.study.notice_board.dao;
+
+public class WriteDataDao {
+	private static WriteDataDao instance;
+	
+	private WriteDataDao() {}
+	
+	public static WriteDataDao getInstance() {
+		if(instance == null) {
+			instance = new WriteDataDao();
+		}
+		return instance;
+	}
+	
+//	public int saveWriterInfo() {
+//		
+//	}
+	
+	
+}

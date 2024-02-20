@@ -1,0 +1,5 @@
+package com.study.insert_and_select.dao;
+
+public class StudentDao {
+
+}

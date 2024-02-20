@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		<div>
+			<input type="text" placeholder= "username">
+		</div>
+		<div>
+			<input type="text" placeholder= "password">
+		</div>
+		
+		<button onclick="handleLoginClick();">로그인</button>
+
+	<script src="/product/static/js/singin.js"></script>
+</body>
+</html>
