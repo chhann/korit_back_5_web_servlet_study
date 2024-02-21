@@ -1,0 +1,5 @@
+package com.study.notice_board.config;
+
+public class DB {
+
+}

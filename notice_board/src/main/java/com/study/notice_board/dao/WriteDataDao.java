@@ -5,11 +5,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.study.notice_board.config.DB;
 import com.study.notice_board.entity.WriterInfo;
+import com.study.notice_board.vo.BoardVo;
 
 public class WriteDataDao {
 	private static WriteDataDao instance;
@@ -23,23 +25,32 @@ public class WriteDataDao {
 		return instance;
 	}
 	
-	public int saveWriterInfo(WriterInfo writerInfo) {
+	public int saveWriterInfo(BoardVo boardVo) {
 		Connection con  = null;
 		PreparedStatement pstmt = null;
 		int successConut = 0;
+		
+		ResultSet rs = null;
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			con = DriverManager.getConnection(DB.URL, DB.USERNAME, DB.PASSWORD);
 			String sql = "insert into write_tb(write_title, write_writer, write_password, write_contents, write_date) values(?, ?, ?, ?, ?)";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, writerInfo.getTitle());
-			pstmt.setString(2,  writerInfo.getWriter());
-			pstmt.setString(3,  writerInfo.getPassword());
-			pstmt.setString(4,  writerInfo.getContents());
-			pstmt.setString(5,  writerInfo.getDate());
+			pstmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			
+			pstmt.setString(1, boardVo.getTitle());
+			pstmt.setString(2, boardVo.getWriter());
+			pstmt.setString(3, boardVo.getPassword());
+			pstmt.setString(4, boardVo.getContents());
+			pstmt.setString(5, boardVo.getDate());
+			
 			successConut = pstmt.executeUpdate();
+			
+			rs = pstmt.getGeneratedKeys();
+			if(rs.next()) {
+				boardVo.setId(rs.getInt(1));
+			}
 			
 		} catch(Exception e) {
 			e.printStackTrace();

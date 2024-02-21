@@ -14,45 +14,30 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.study.notice_board.dao.WriteDataDao;
+import com.study.notice_board.dto.InsertBoardReqDto;
 import com.study.notice_board.entity.WriterInfo;
+import com.study.notice_board.service.BoardService;
 import com.study.notice_board.utils.RequestUtil;
+import com.study.notice_board.utils.ResponseEntity;
 
 
 @WebServlet("/write")
 public class InsertWrite extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private BoardService boardService;
     
     public InsertWrite() {
         super();
-
+        boardService = BoardService.getInstance();
     }
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		WriterInfo writerInfo = RequestUtil.convertJsonData(request, WriterInfo.class);
-		
-		
-		
-		Gson gson = new Gson();
-		
-		//Json -> Entity 객체로
-//		WriterInfo writerInfo = gson.fromJson(requestJsonData, WriterInfo.class);
-		
+		InsertBoardReqDto ReqDto = RequestUtil.convertJsonData(request, InsertBoardReqDto.class);
+
 		WriteDataDao writeDataDao = WriteDataDao.getInstance();
 		
-		int successCount = writeDataDao.saveWriterInfo(writerInfo);
-		
-		Map<String, Object> responseMap = new HashMap<>();
-		responseMap.put("status", 201);
-		responseMap.put("data", "응답데이터");
-		responseMap.put("successCount", successCount);
-		
-		response.setContentType("application/json");
-		
-		
-		PrintWriter writer = response.getWriter();
-		writer.println(gson.toJson(responseMap));
+		ResponseEntity.ofJson(response, 201, boardService.addBoard(ReqDto));
 		
 		
 	}

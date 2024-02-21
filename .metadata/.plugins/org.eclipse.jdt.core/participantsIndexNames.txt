@@ -1,5 +1,5 @@
 INDEX VERSION 1.134
-C:\aws\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4251057264.index
+C:\aws\servlet\korit_back_5_web_servlet_study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4251057264.index
 \product\src\main\java
-C:\aws\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3429860676.index
+C:\aws\servlet\korit_back_5_web_servlet_study\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3429860676.index
 \product\src\main\java

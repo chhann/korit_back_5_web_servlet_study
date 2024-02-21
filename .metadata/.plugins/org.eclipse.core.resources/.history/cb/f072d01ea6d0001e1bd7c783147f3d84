@@ -1,0 +1,33 @@
+package com.study.notice_board.service;
+
+import com.study.notice_board.dao.WriteDataDao;
+import com.study.notice_board.dto.InsertBoardReqDto;
+import com.study.notice_board.dto.InsertBoardRespDto;
+import com.study.notice_board.vo.BoardVo;
+
+public class BoardService {
+	private static BoardService instance;
+	private WriteDataDao writeDataDao;
+	
+	private BoardService() {
+		writeDataDao = WriteDataDao.getInstance();
+	}
+	
+	private static BoardService getInstance() {
+		if(instance == null) {
+			instance = new BoardService();
+		}
+		return instance;
+	}
+	
+	public InsertBoardRespDto addBoard(InsertBoardReqDto insertBordReqDto) {
+		BoardVo boardvo = insertBordReqDto.toVo();
+		
+		int successCount = writeDataDao.saveWriterInfo(boardvo);
+		
+		return boardvo.toInsertDto(successCount);
+	}
+	
+	
+	
+}
